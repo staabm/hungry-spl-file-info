@@ -1,0 +1,9 @@
+{
+    "require-dev": {
+        "staabm/phpstan-dba": "^0.2.79",
+        "symfony/symfony": "^6.3"
+    },
+    "autoload": {
+        "files": ["bytes.php"]
+    }
+}
