@@ -2,15 +2,23 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$dir = __DIR__;
+$start=hrtime(true);
+
+$dir = __DIR__.'/vendor/';
 
 $finder = new \Symfony\Component\Finder\Finder();
-$finder->in($dir);
+$finder->ignoreDotFiles(true)->ignoreVCS(false);
+$finder->files()->in($dir);
 
 $i = 0;
 foreach ($finder as $file) {
     $i++;
 }
+
+$end=hrtime(true);
+$eta=$end-$start;
+printf("Elapsed time: %d ms\n", $eta/1000000);
+
 
 printf("Num files %d\n", $i);
 printf(
